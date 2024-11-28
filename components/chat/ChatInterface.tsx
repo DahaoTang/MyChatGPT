@@ -94,7 +94,7 @@ export function ChatInterface() {
 								Send
 							</Button>
 						</form>
-						<div className="mt-4 flex items-center justify-center text-sm text-gray-500">
+						<div className="mt-4 mb-1 flex items-center justify-center text-sm text-gray-500">
 							Developed by
 							<a
 								className="hover:text-rose-300 mx-1"
