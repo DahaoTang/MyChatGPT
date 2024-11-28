@@ -79,7 +79,7 @@ export function ChatInterface() {
 									<Message key={message.id} message={message} />
 								))}
 								{isLoading && (
-									<div className="text-gray-500 ml-4">
+									<div className="text-gray-500 ml-4 text-sm">
 										Assistant is typing...
 									</div>
 								)}
