@@ -65,7 +65,7 @@ export function ChatInterface() {
 				<div className="flex flex-col h-full">
 					<h1 className={headerClasses}>
 						{hasMessages ? (
-							"My GPT"
+							"MyGPT"
 						) : (
 							<span className="bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 text-transparent bg-clip-text">
 								Welcome to MyGPT, JuJu

@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={noto_sans.className}>{children}</body>
+			<body className={noto_sans.className}>
+				<div className="text-neutral-800">{children}</div>
+			</body>
 		</html>
 	);
 }
