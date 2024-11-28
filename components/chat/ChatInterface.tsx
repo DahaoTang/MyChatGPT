@@ -16,12 +16,10 @@ export function ChatInterface() {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 		if (!input.trim() || isLoading) return;
-
 		setIsLoading(true);
 		const message = input.trim();
 		addMessage(message, "user");
 		setInput("");
-
 		try {
 			const response = await fetch("/api/chat", {
 				method: "POST",
@@ -46,21 +44,17 @@ export function ChatInterface() {
 	}, [messages]);
 
 	const hasMessages = messages.length > 0;
-	const headerClasses = `
-    font-bold text-center transition-all duration-500 ease-in-out py-4 sticky top-0 z-10
-    ${
-			hasMessages
-				? "text-2xl translate-y-0 bg-background"
-				: "text-4xl translate-y-[30vh]"
-		}
-  `;
-	const scrollAreaClasses = `
-    h-[calc(100vh-13rem)] px-4 transition-opacity duration-500
-    ${hasMessages ? "opacity-100 delay-300" : "opacity-0"}
-  `;
+	const headerClasses = `font-bold text-center transition-all duration-500 ease-in-out pt-1 pb-3 sticky top-0 z-10 ${
+		hasMessages
+			? "text-2xl translate-y-0 bg-background"
+			: "text-4xl translate-y-[25vh]"
+	}`;
+	const scrollAreaClasses = `h-[calc(100vh-11rem)] px-4 transition-opacity duration-500 ${
+		hasMessages ? "opacity-100 delay-300" : "opacity-0"
+	}`;
 
 	return (
-		<div className="h-screen flex flex-col p-4">
+		<div className="h-screen flex flex-col p-2">
 			<Card className="flex-1 flex flex-col shadow-none border-none">
 				<div className="flex flex-col h-full">
 					<h1 className={headerClasses}>
@@ -74,7 +68,7 @@ export function ChatInterface() {
 					</h1>
 					<div className="flex-1 overflow-hidden">
 						<ScrollArea className={scrollAreaClasses}>
-							<div className="space-y-4">
+							<div className="space-y-2">
 								{messages.map((message) => (
 									<Message key={message.id} message={message} />
 								))}
@@ -87,7 +81,7 @@ export function ChatInterface() {
 							</div>
 						</ScrollArea>
 					</div>
-					<div className="p-4 bg-background">
+					<div className="p-2 bg-background">
 						<form onSubmit={handleSubmit} className="flex gap-2">
 							<Input
 								value={input}
@@ -100,7 +94,7 @@ export function ChatInterface() {
 								Send
 							</Button>
 						</form>
-						<div className="mt-6 flex items-center justify-center text-sm text-gray-500">
+						<div className="mt-4 flex items-center justify-center text-sm text-gray-500">
 							Developed by
 							<a
 								className="hover:text-rose-300 mx-1"
