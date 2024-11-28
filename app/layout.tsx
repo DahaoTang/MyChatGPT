@@ -1,10 +1,13 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const noto_sans = Noto_Sans({
+	subsets: ["latin"],
+	display: "swap",
+});
 
 export const metadata = {
-	title: "Chat App",
+	title: "My GPT",
 	description: "A ChatGPT-like chat application",
 };
 
@@ -15,7 +18,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={noto_sans.className}>{children}</body>
 		</html>
 	);
 }
