@@ -28,13 +28,13 @@ export function ChatInterface() {
 				body: JSON.stringify({ message: input.trim() }),
 			});
 
-			const data = await response.json();
-			if (data.error) throw new Error(data.error);
+			if (!response.ok) throw new Error("Failed to get response");
 
+			const data = await response.json();
 			addMessage(data.response, "assistant");
-		} catch (error) {
+		} catch {
 			addMessage(
-				"Sorry, there was an error processing your request.",
+				"Sorry, I encountered an error. Please try again.",
 				"assistant"
 			);
 		} finally {
