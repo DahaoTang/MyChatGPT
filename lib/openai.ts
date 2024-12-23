@@ -11,7 +11,7 @@ export const openai = new OpenAI({
 export async function generateResponse(message: string) {
 	try {
 		const response = await openai.chat.completions.create({
-			model: "gpt-3.5-turbo",
+			model: "gpt-4o",
 			messages: [{ role: "user", content: message }],
 			temperature: 0.7,
 		});
